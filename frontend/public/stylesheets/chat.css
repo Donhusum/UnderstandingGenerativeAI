@@ -1,8 +1,8 @@
 
-p {
-  position: sticky;
-  color: #fff;
-  margin-top: 6rem;
+  p {
+    position: sticky;
+    color: #fff;
+    margin-top: 6rem;
   }
 
   input[type="text"] {
@@ -35,13 +35,13 @@ p {
   }
 
   .text-container {
-    width: 500px;
-    height: 400px;
+    height: 65vh;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
+    
   }
   
   .wide {
@@ -51,8 +51,8 @@ p {
 
   .left-side, .right-side {
     width: 50vw;
-    padding: 20px; /* Add padding as needed */
-    box-sizing: border-box; /* Include padding in width calculation */
+    padding: 20px; 
+    box-sizing: border-box; 
   }
   
   .left-side {
@@ -83,4 +83,93 @@ p {
     top: 100%; 
     left: 0%;
   }
+
+  .data-set-grid {
+    background-color: #fff;
+    margin-top: 20vh;
+    margin-left: 10vh;
+    width: 70vh;
+    height: 63vh;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .data-set-top {
+    background-color: #444;
+    margin-left: 10vh;
+    margin-top: 7vh;
+    width: 20vh;
+    height: 20vh;
+    display: inline-grid;
+  }
+  .data-set-bottom {
+    background-color: #444;
+    margin-left: 10vh;
+    margin-top: 5vh;
+    width: 20vh;
+    height: 20vh;
+    display: inline-grid;
+  }
+
+  d {
+    color:#fff;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75rem;
+    height: 2.125rem;
+    margin-left: 4rem;
+    
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.625rem;
+    width: 1.625rem;
+    left: 0.25rem;
+    bottom: 0.25rem;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 0.063rem #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(1.625rem);
+    -ms-transform: translateX(1.625rem);
+    transform: translateX(1.625rem);
+  }
+ 
   

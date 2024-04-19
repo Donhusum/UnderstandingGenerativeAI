@@ -8,21 +8,21 @@ exports.user_chat_get = function(req, res) {
 
 
 exports.user_chat_post = function(req, res) {
-    let { prompt:prompt } = req.body;
+    let { prompt:prompt} = req.body;
+    if (prompt == ""){
+        return res.render("chat", {title: "Chat", prompts: prompts})
+    }
     
     prompts.push(prompt)
-    axios.post(`${backend}/prompt/generate`, {data: prompt}, 
-        {headers: 
-            {'Content-Type': 'application/json'
-        }
-
-    }).then(response => {
+    
+    axios.post(`${backend}/prompt/generate`, {data: req.body}
+    ).then(response => {
         prompts.push(response.data)
         res.render("chat", {title: "Chat", prompts: prompts})
 
     }).catch(function (error) {
         console.log(error);
-
+        console.log(prompts);
     });
     
 }

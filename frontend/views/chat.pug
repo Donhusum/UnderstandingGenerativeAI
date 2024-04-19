@@ -4,7 +4,6 @@ block header
   link(rel='stylesheet', href='/stylesheets/chat.css')
 
 block content
-  
   .container
     .left-side
       p Sentence describing the desired output, and maybe what the prompt should be.
@@ -13,11 +12,53 @@ block content
               each prompt in prompts
                 span= prompt
                 br
-        form(action='/users/chat', method='POST')
+        form(action='/users/chat', method='POST', id="chatForm")
           .v-textfield
-            input(type='text', name='prompt', placeholder='Enter prompt here', autofocus='')
+            input(type='text', name='prompt', placeholder='Enter prompt here', autofocus)
             button(type='submit') Enter
+        
           
     .right-side
-      
+      .data-set-grid
+        .data-set-top
+          d Dataset One
+          label.switch
+            input(type='checkbox', name="data1", id="data1" )
+            span.slider
+        .data-set-top
+          d Dataset Two
+          label.switch
+            input(type='checkbox', name="data2", id="data2" )
+            span.slider
+        .data-set-bottom
+          d Dataset Three
+          label.switch
+            input(type='checkbox', name="data3", id="data3" )
+            span.slider
+        .data-set-bottom
+          d Dataset Four
+          label.switch
+            input(type='checkbox', name="data4", id="data4" )
+            span.slider
+
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+  script.
+    $(document).ready(function() {
+      $('#chatForm').submit(function(event) {
+        
+        event.preventDefault();
+
+        var data1 = $('#data1').is(':checked') ? $('#data1').val() : '';
+        var data2 = $('#data2').is(':checked') ? $('#data2').val() : '';
+        var data3 = $('#data3').is(':checked') ? $('#data3').val() : '';
+        var data4 = $('#data4').is(':checked') ? $('#data4').val() : '';
+
+        $(this).append('<input type="hidden" name="data1" value="' + data1 + '">');
+        $(this).append('<input type="hidden" name="data2" value="' + data2 + '">');
+        $(this).append('<input type="hidden" name="data3" value="' + data3 + '">');
+        $(this).append('<input type="hidden" name="data4" value="' + data4 + '">');
+
+        this.submit();
+      });
+    });
         
