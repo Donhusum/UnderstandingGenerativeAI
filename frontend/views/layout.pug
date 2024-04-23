@@ -7,8 +7,7 @@ html
 
     title= title
 
-    // Import font-awesome
-    script(defer src="https://kit.fontawesome.com/a3463e4303.js" crossorigin="anonymous")
+    link(rel="stylesheet", href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')
 
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet")
@@ -24,15 +23,12 @@ html
             h1 ChatXxX
         nav
           ul(class="nav-links")
-            if !user
               a(class={activepage: title === "Home"} href="/")
                 li Home
               a(class={activepage: title === "Chat"} href="/users/chat")
                 li Chat
               a(class={activepage: title === "Info"} href="/users/info")
                 li Info
-
-
 
     div(class="content-container")
       block content

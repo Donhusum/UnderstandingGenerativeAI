@@ -2,11 +2,14 @@ extends layout
 
 block header
   link(rel='stylesheet', href='/stylesheets/chat.css')
+  
 
 block content
   .container
     .left-side
-      p Sentence describing the desired output, and maybe what the prompt should be.
+        p(id="question") 
+        button(type='button', id='previous') Previous
+        button(type='button', id='next') Next
         .text-container  
             .prompts
               each prompt in prompts
@@ -22,23 +25,31 @@ block content
       .data-set-grid
         .data-set-top
           d Dataset One
+            a(href="/users/chat/dataset?set=1",  class="button")
+              i.icon-info-sign(class="info")
           label.switch
-            input(type='checkbox', name="data1", id="data1" )
+            input(type='checkbox', name="data1", id="data1", checked = data1State )
             span.slider
         .data-set-top
           d Dataset Two
+            a(href="/users/chat/dataset?set=2",  class="button")
+                i.icon-info-sign(class="info")
           label.switch
-            input(type='checkbox', name="data2", id="data2" )
+            input(type='checkbox', name="data2", id="data2", checked = data2State )
             span.slider
         .data-set-bottom
           d Dataset Three
+            a(href="/users/chat/dataset?set=3",  class="button")
+              i.icon-info-sign(class="info")
           label.switch
-            input(type='checkbox', name="data3", id="data3" )
+            input(type='checkbox', name="data3", id="data3", checked = data3State )
             span.slider
         .data-set-bottom
           d Dataset Four
+            a(href="/users/chat/dataset?set=4",  class="button")
+              i.icon-info-sign(class="info")  
           label.switch
-            input(type='checkbox', name="data4", id="data4" )
+            input(type='checkbox', name="data4", id="data4", checked = data4State )
             span.slider
 
   script(src='https://code.jquery.com/jquery-3.6.0.min.js')
@@ -60,5 +71,37 @@ block content
 
         this.submit();
       });
+    });
+  script.
+    $(document).ready(function() {
+      const questions = [
+      "Question 1", 
+      "Question 2", 
+      "Question 3"
+      ]
+
+      document.getElementById("question").textContent = questions[0];
+    
+      $('#next').click(function(event){
+        var text = document.getElementById("question").textContent;
+        
+        for(var i = 0; i < 2; i++){
+          if (text == questions[i]){
+            document.getElementById("question").textContent = questions[i+1];
+          }
+        }
+      })
+
+      $('#previous').click(function(event){
+        var text = document.getElementById("question").textContent;
+        
+        for(var i = 1; i <= 2; i++){
+          if (text == questions[i]){
+            document.getElementById("question").textContent = questions[i-1];
+          }
+        }
+      })
+
+
     });
         

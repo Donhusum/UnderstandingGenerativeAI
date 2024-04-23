@@ -30,8 +30,8 @@
   }
 
   .container {
-    display: flex; /* Use flexbox for layout */
-    height: 100vh; /* Full viewport height */
+    display: flex; 
+    height: 100vh; 
   }
 
   .text-container {
@@ -171,5 +171,19 @@
     -ms-transform: translateX(1.625rem);
     transform: translateX(1.625rem);
   }
- 
+  
+  .info {
+    font-size: 1.063rem;
+    padding-left: 0.313rem;
+    display: inline;
+    color: white;
+  }
+  
+  .info:hover {
+    color:#555;
+  }
+
+  * {
+    transition: all .1s ease;
+  }
   
