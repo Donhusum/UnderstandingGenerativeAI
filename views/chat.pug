@@ -11,8 +11,10 @@ block content
         .text-container  
             .prompts
               each prompt in prompts
-                span= prompt
-                br
+                .bubble
+                  .text-length
+                  span= prompt
+                  br
         form(action='/users/chat', method='POST')
           .v-textfield
             input(type='text', name='prompt', placeholder='Enter prompt here', autofocus='')
