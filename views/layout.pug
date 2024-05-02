@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    title= title
+
+    // Import font-awesome
+    script(defer src="https://kit.fontawesome.com/a3463e4303.js" crossorigin="anonymous")
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet")
+
+
+    block header
+
+  body
+    block topbar
+      div(class="top-bar")
+        .center-wrapper
+          a(href="/dashboard")
+            h1 ChatXxX
+        nav
+          ul(class="nav-links")
+            if !user
+              a(class={activepage: title === "Home"} href="/")
+                li Home
+              a(class={activepage: title === "Chat"} href="/users/chat")
+                li Chat
+              a(class={activepage: title === "Info"} href="/users/info")
+                li Info
+
+
+
+    div(class="content-container")
+      block content
