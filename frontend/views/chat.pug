@@ -11,10 +11,12 @@ block content
         button(type='button', id='previous') Previous
         button(type='button', id='next') Next
         .text-container  
+          .text-length 
             .prompts
               each prompt in prompts
-                span= prompt
-                br
+                .bubble
+                  span= prompt
+                  br
         form(action='/chat', method='POST', id="chatForm")
           .v-textfield
             input(type='text', name='prompt', placeholder='Enter prompt here', autofocus)
