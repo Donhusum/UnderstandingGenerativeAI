@@ -8,11 +8,11 @@ block content
   .container
     .left-side
       p Sentence describing the desired output, and maybe what the prompt should be.
-        .text-container  
+        .text-container 
+          .text-length 
             .prompts
               each prompt in prompts
                 .bubble
-                  .text-length
                   span= prompt
                   br
         form(action='/users/chat', method='POST')

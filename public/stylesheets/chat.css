@@ -35,11 +35,10 @@ p {
   }
 
   .text-container {
-    width: auto;
-    height: auto;
-    max-height: 67vh;
+    width: 45vw;
+    height: 37vw;
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: auto;
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
@@ -47,14 +46,14 @@ p {
   .bubble {
     --r: 5px; /* the radius */
     
-    width: auto;
-    padding: calc(1*var(--r)/3);
+    width: fit-content;
+    max-width: auto;
+    padding: calc(2*var(--r)/3);
     background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
     color: #fff;
-
     margin: 0;
     display: grid;
-    place-content: center;
+    place-content: left;
     font-family: system-ui, sans-serif;
     font-size: 10px;
     border-radius: 5px;
@@ -91,6 +90,7 @@ p {
   }
 
   .text-length{
-    width: 400px !important;
+    width: fit-content;
+    max-width: 40vw;
   }
   
