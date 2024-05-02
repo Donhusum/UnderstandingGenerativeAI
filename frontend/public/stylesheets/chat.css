@@ -35,15 +35,30 @@
   }
 
   .text-container {
-    height: 65vh;
+    width: 45vw;
+    height: 37vw;
     display: grid;
-    
+    grid-template-columns: auto;
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
-    
   }
-  
+  .bubble {
+    --r: 5px; /* the radius */
+
+    width: fit-content;
+    max-width: auto;
+    padding: calc(2*var(--r)/3);
+    background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
+    color: #fff;
+    margin: 0;
+    display: grid;
+    place-content: left;
+    font-family: system-ui, sans-serif;
+    font-size: 10px;
+    border-radius: 5px;
+  }
+
   .wide {
     width: 500px;
   }
@@ -68,22 +83,19 @@
     position: relative;
   }
 
-  .scroll {
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow-y: auto;
- } 
-
  .v-textfield [type= text]{
     width: 80%;
     padding: 12px 20px;
     margin: 8px 5px;
     box-sizing: border-box;
-    position: relative;
+    position: left, bottom;
     top: 100%; 
     left: 0%;
   }
-
+  .text-length{
+    width: fit-content;
+    max-width: 40vw;
+  }
   .data-set-grid {
     background-color: #fff;
     margin-top: 20vh;
