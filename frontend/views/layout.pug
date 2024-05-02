@@ -19,15 +19,13 @@ html
     block topbar
       div(class="top-bar")
         .center-wrapper
-          a(href="/dashboard")
+          a(href="/chat")
             h1 ChatXxX
         nav
           ul(class="nav-links")
-              a(class={activepage: title === "Home"} href="/")
-                li Home
-              a(class={activepage: title === "Chat"} href="/users/chat")
+              a(class={activepage: title === "Chat"} href="/chat")
                 li Chat
-              a(class={activepage: title === "Info"} href="/users/info")
+              a(class={activepage: title === "Info"} href="/chat/info")
                 li Info
 
     div(class="content-container")
