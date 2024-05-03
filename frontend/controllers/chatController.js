@@ -1,6 +1,8 @@
 const axios = require('axios');
 const backend = "http://localhost:8888";
 
+const AIfunc = require('./../../backend/AI/AIfunc')
+
 let prompts = [];
 exports.chat_get = function(req, res) {
     res.render("chat", {title: "Chat", prompts})
@@ -54,4 +56,12 @@ exports.chat_dataset_get = function(req, res){
             res.render("datasets", {title: "Info", headline: headlines[i], content: contents[i]})
         }
     }    
+}
+
+
+exports.testAIMessage = (req, res) => {
+
+    let ans = AIfunc.askAI("Hello to AI", "d1d2")
+
+    //res.render("chat", {title: ans, prompts: ans})
 }
