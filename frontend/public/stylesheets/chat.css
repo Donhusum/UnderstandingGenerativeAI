@@ -31,7 +31,7 @@
 
   .container {
     display: flex; 
-    height: 100vh; 
+    height: 56.5vw !important; 
   }
 
   .text-container {
@@ -59,9 +59,6 @@
     border-radius: 5px;
   }
 
-  .wide {
-    width: 500px;
-  }
   
 
   .left-side, .right-side {
@@ -84,7 +81,7 @@
   }
 
  .v-textfield [type= text]{
-    width: 80%;
+    width: 40vw;
     padding: 12px 20px;
     margin: 8px 5px;
     box-sizing: border-box;
