@@ -44,22 +44,19 @@
     overflow-y: auto;
   }
   .bubble {
-    --r: 5px; /* the radius */
-
+    --r: 5px;
     width: fit-content;
-    max-width: auto;
+    max-width: 41vw;
     padding: calc(2*var(--r)/3);
-    background: linear-gradient(135deg,#FE6D00,#1384C5) border-box;
+    background: linear-gradient(135deg,#09194e,#1384C5) border-box;
     color: #fff;
-    margin: 0;
     display: grid;
     place-content: left;
     font-family: system-ui, sans-serif;
-    font-size: 10px;
+    font-size: 1.5rem;
     border-radius: 5px;
+    margin-top: 1rem;
   }
-
-  
 
   .left-side, .right-side {
     width: 50vw;
@@ -68,7 +65,6 @@
   }
   
   .left-side {
-
     background-color: #292929;
   }
   
@@ -94,30 +90,32 @@
     max-width: 40vw;
   }
   .data-set-grid {
-    background-color: #fff;
-    margin-top: 20vh;
-    margin-left: 10vh;
+    margin-top: 10rem;
     width: 70vh;
-    height: 63vh;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    margin-inline: 10rem;
   }
 
   .data-set-top {
+    border-radius: 1rem;
     background-color: #444;
-    margin-left: 10vh;
+    margin-inline: auto;
     margin-top: 7vh;
     width: 20vh;
-    height: 20vh;
+    height: 25vh;
     display: inline-grid;
+    border: 2px solid white;
   }
   .data-set-bottom {
+    border-radius: 1rem;
     background-color: #444;
-    margin-left: 10vh;
+    margin-inline: auto;
     margin-top: 5vh;
     width: 20vh;
-    height: 20vh;
+    height: 25vh;
     display: inline-grid;
+    border: 2px solid white;
   }
 
   d {
@@ -128,11 +126,9 @@
 
   .switch {
     position: relative;
-    display: inline-block;
+    margin-inline: auto;
     width: 3.75rem;
     height: 2.125rem;
-    margin-left: 4rem;
-    
   }
   
   .switch input { 
@@ -143,6 +139,7 @@
   
   .slider {
     position: absolute;
+    margin-inline: auto;
     cursor: pointer;
     top: 0;
     left: 0;
