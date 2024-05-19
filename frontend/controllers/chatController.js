@@ -3,18 +3,22 @@ const backend = "http://localhost:8888";
 
 const AIfunc = require('./../../backend/AI/AIfunc')
 
-let prompts = [];
+let messages = [
+                {text: "These are two test messages: this one is from the user", user: "user"}, 
+                {text: "While this on should be from the AI", user: "AI"}];
+
 exports.chat_get = function(req, res) {
-    res.render("chat", {title: "Chat", prompts})
+    res.render("chat", {title: "Chat", messages: messages})
 };
 
 exports.chat_post = function(req, res) {
     let { prompt:prompt} = req.body;
+
     if (prompt == ""){
-        return res.render("chat", {title: "Chat", prompts: prompts})
+        return res.render("chat", {title: "Chat", messages: messages})
     }
     
-    prompts.push(prompt)
+    messages.push({text: prompt, user: "user"})
 
     var data1State = req.body.data1 == 'on' ? true: false;
     var data2State = req.body.data2 == 'on' ? true: false;
@@ -23,19 +27,20 @@ exports.chat_post = function(req, res) {
 
     axios.post(`${backend}/prompt/generate`, {data: req.body}
     ).then(response => {
-        prompts.push(response.data)
+        messages.push({text: response.data, user: "AI"})
         res.render("chat", {
                             title: "Chat", 
-                            prompts: prompts, 
+                            messages: messages,
                             data1State: data1State, 
                             data2State: data2State, 
                             data3State: data3State, 
                             data4State: data4State
                         })
     }).catch(function (error) {
-        console.log(error);
-        console.log(prompts);
-        res.render("chat", {title: "Chat", prompts: prompts})
+        //console.log(error);
+        //console.log(prompts);
+        console.log(messages)
+        res.render("chat", {title: "Chat", messages: messages})
     });
     
 }

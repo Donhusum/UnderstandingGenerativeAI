@@ -13,10 +13,14 @@ block content
         button(type='button', id='next') Next
       .text-container  
         .text-length 
-          .prompts
-            each prompt in prompts
-              .bubble
-                span= prompt
+          each message in messages
+            if message.user == 'user'
+              .bubble-user
+                span= message.text
+                br
+            if message.user == 'AI'
+              .bubble-ai
+                span= message.text
                 br
       form(action='/chat', method='POST', id="chatForm")
         .v-textfield
@@ -83,7 +87,7 @@ block content
           $(this).append('<input type="hidden" name="data2" value="' + data2 + '">');
           $(this).append('<input type="hidden" name="data3" value="' + data3 + '">');
           $(this).append('<input type="hidden" name="data4" value="' + data4 + '">');
-
+         
         this.submit();
       });
     });

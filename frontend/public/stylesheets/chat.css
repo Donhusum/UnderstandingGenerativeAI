@@ -50,18 +50,31 @@
     overflow-x: hidden;
     overflow-y: auto;
   }
-  .bubble {
-    --r: 5px;
+  .bubble-ai {
     width: fit-content;
     max-width: 41vw;
-    padding: calc(2*var(--r)/3);
-    background: linear-gradient(135deg,#09194e,#1384C5) border-box;
+    padding-inline: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background: linear-gradient(135deg,#0e0e0e, #111746) border-box;
     color: #fff;
-    display: grid;
-    place-content: left;
     font-family: system-ui, sans-serif;
-    font-size: 1.5rem;
-    border-radius: 5px;
+    font-size: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+  }
+
+  .bubble-user {
+    width: fit-content;
+    max-width: 41vw;
+    padding-inline: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    background: linear-gradient(135deg,#111746,#0e0e0e) border-box;
+    color: #fff;
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    border-radius: 10px;
     margin-top: 1rem;
   }
 
@@ -77,10 +90,6 @@
   
   .right-side {
     background-color: #3d3d3d;
-  }
-
-  .prompts {
-    position: relative;
   }
 
  .v-textfield [type= text]{
