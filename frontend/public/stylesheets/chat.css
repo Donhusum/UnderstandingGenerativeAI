@@ -6,8 +6,21 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
     position: absolute;
-
   }
+
+  .title-text-container {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin-top: 7rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  t {
+    font-size: 1.5rem;
+  }
+
   .previous-next-buttons {
     margin-top: 10rem;
     display:flex;
@@ -62,40 +75,39 @@
   }
 
   .text-container {
-    width: 45vw;
-    height: 37vw;
-    display: grid;
-    grid-template-columns: auto;
+    width: auto;
+    height: 35vw;
     overflow: scroll;
     overflow-x: hidden;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
-  .bubble-ai {
+
+  .bubble-ai, .bubble-user {
     width: fit-content;
-    max-width: 41vw;
+    max-width: 25vw;
     padding-inline: 1rem;
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
-    background: linear-gradient(135deg,#0e0e0e, #111746) border-box;
     color: #fff;
     font-family: system-ui, sans-serif;
     font-size: 1rem;
     border-radius: 10px;
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+  .bubble-ai {
+    align-self: flex-start;
+    background: linear-gradient(135deg,#0e0e0e, #111746) border-box;
   }
 
   .bubble-user {
-    width: fit-content;
-    max-width: 41vw;
-    padding-inline: 1rem;
-    padding-bottom: 0.5rem;
-    padding-top: 0.5rem;
+    align-self: flex-end;
     background: linear-gradient(135deg,#111746,#0e0e0e) border-box;
-    color: #fff;
-    font-family: system-ui, sans-serif;
-    font-size: 1rem;
-    border-radius: 10px;
-    margin-top: 1rem;
+  }
+
+  .bubble-user span, .bubble-ai span {
+    display: inline-block;
   }
 
   .left-side, .right-side {
@@ -113,17 +125,13 @@
   }
 
  .v-textfield [type= text]{
-    width: 40vw;
+    width: 43vw;
     padding: 12px 20px;
     margin: 8px 5px;
     box-sizing: border-box;
     position: left, bottom;
     top: 100%; 
     left: 0%;
-  }
-  .text-length{
-    width: fit-content;
-    max-width: 40vw;
   }
   .data-set-grid {
     margin-top: 10rem;

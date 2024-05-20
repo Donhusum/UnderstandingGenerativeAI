@@ -12,16 +12,15 @@ block content
         button(type='button', id='previous', class="PNButtons") Previous
         button(type='button', id='next', class="PNButtons") Next
       .text-container  
-        .text-length 
-          each message in messages
-            if message.user == 'user'
-              .bubble-user
-                span= message.text
-                br
-            if message.user == 'AI'
-              .bubble-ai
-                span= message.text
-                br
+        each message in messages
+          if message.user == 'user'
+            .bubble-user
+              span= message.text
+              br
+          if message.user == 'AI'
+            .bubble-ai
+              span= message.text
+              br
       form(action='/chat', method='POST', id="chatForm")
         .v-textfield
           input(type='text', name='prompt', placeholder='Enter prompt here', autofocus)
@@ -29,6 +28,8 @@ block content
       
           
     .right-side
+      .title-text-container
+        t  Toggle any of these datasets on or off, to see how the AI will respond with different data and biases
       .data-set-grid
         .data-set-top
           d Dataset One

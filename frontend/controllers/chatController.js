@@ -4,8 +4,18 @@ const backend = "http://localhost:8888";
 const AIfunc = require('./../../backend/AI/AIfunc')
 
 let messages = [
-                {text: "These are two test messages: this one is from the user", user: "user"}, 
-                {text: "While this on should be from the AI", user: "AI"}];
+                {text: "I got as message to all you liberals out there: You want my gun, my firearm? Come take it from me.", user: "user"}, 
+                {text: "Just walk through my door, walk into my homw, and take it from me, with your weak, soft, liberal, girlish hands.", user: "AI"},
+                {text: "Just try to put those hands on me, those soft liberal hands. Put them on my body, just, slowly dragging your fingers up and down my arm, givin' me goosebumps.", user: "user"}, 
+                {text: "You want my gun?! Come kiss me for it, but not like away. Don't be too obvious with it. Let's do that thing, where our faces get close too each other, and you know what's gonna happen.", user: "AI"},
+                {text: "It's jsut a matter of time. We just stare at each others lips, but you're waiting for the right signal to give yourself over to them completely, like in a walk to remember.", user: "user"}, 
+                {text: "Come do that for my gun! Bite my lip, and play with my hair, for my firarm.", user: "AI"},
+                {text: "If you want my gun, come spank me for it.", user: "user"}, 
+                {text: "Not like too hard, but like still hard, d'yknow what i mean?", user: "AI"},
+                {text: "Like, hurt me, but make me feel safe at the same time.", user: "user"}, 
+                {text: "You pussy liberals", user: "AI"},
+                ];
+                
 
 exports.chat_get = function(req, res) {
     res.render("chat", {title: "Chat", messages: messages})
