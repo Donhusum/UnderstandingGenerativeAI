@@ -9,7 +9,27 @@
 
   }
   .previous-next-buttons {
-    margin-top: 9rem;
+    margin-top: 10rem;
+    display:flex;
+    margin-inline: auto;
+  }
+
+  .PNButtons {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    color: black;
+    padding: 0.5rem;
+    width: 7rem;
+    text-align: center;
+    font-size: 1rem;
+    transition-duration: 0.2s;
+    border-radius: 10px;
+    margin-left: 11vw;
+  }
+  .PNButtons:hover {
+    background-color: #262626;
+    color: white;
   }
 
   input[type="text"] {

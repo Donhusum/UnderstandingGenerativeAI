@@ -25,6 +25,7 @@ p {
     text-decoration: none;
     font-size: 1rem;
     transition-duration: 0.3s;
+    border-radius: 10px;
 }
 .example:hover {
     background-color: #262626;
