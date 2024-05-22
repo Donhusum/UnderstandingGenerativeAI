@@ -1,3 +1,9 @@
+import sys
+
+questions = sys.argv[1]
+datasets = sys.argv[2]
+
+
 import pickle
 import csv
 
@@ -50,10 +56,7 @@ with open(myModel, 'rb') as file:
 
 #   return predicted_answer
 
-import sys
 
-questions = sys.argv[1]
-datasets = sys.argv[2]
 
 answer = "Hello, I am stupid dummy AI. "
 #answer = generateResponse(questions, datasets)
