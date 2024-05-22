@@ -3,7 +3,8 @@ const backend = "http://localhost:8888";
 
 const AIfunc = require('./../../backend/AI/AIfunc')
 
-let messages = [
+let messages = [];
+/*let messages = [
                 {text: "I got as message to all you liberals out there: You want my gun, my firearm? Come take it from me.", user: "user"}, 
                 {text: "Just walk through my door, walk into my homw, and take it from me, with your weak, soft, liberal, girlish hands.", user: "AI"},
                 {text: "Just try to put those hands on me, those soft liberal hands. Put them on my body, just, slowly dragging your fingers up and down my arm, givin' me goosebumps.", user: "user"}, 
@@ -15,26 +16,42 @@ let messages = [
                 {text: "Like, hurt me, but make me feel safe at the same time.", user: "user"}, 
                 {text: "You pussy liberals", user: "AI"},
                 ];
-                
+  */
 
 exports.chat_get = function(req, res) {
     res.render("chat", {title: "Chat", messages: messages})
 };
 
-exports.chat_post = function(req, res) {
-    let { prompt:prompt} = req.body;
+exports.chat_post = async function (req, res) {
+    let {prompt: prompt} = req.body;
 
-    if (prompt == ""){
+    if (prompt == "") {
         return res.render("chat", {title: "Chat", messages: messages})
     }
-    
-    messages.push({text: prompt, user: "user"})
 
-    var data1State = req.body.data1 == 'on' ? true: false;
-    var data2State = req.body.data2 == 'on' ? true: false;
-    var data3State = req.body.data3 == 'on' ? true: false;
-    var data4State = req.body.data4 == 'on' ? true: false;
+    var data1State = req.body.data1 == 'on' ? true : false;
+    var data2State = req.body.data2 == 'on' ? true : false;
+    var data3State = req.body.data3 == 'on' ? true : false;
+    var data4State = req.body.data4 == 'on' ? true : false;
 
+/*
+    console.log("finale answer: " + await testAIMessage(prompt, ));
+    messages.push({text: prompt, user: "user"});
+    console.log("user push: " + messages[0]);
+    messages.push({text: testAIMessage(prompt, ), user: "AI"});
+    console.log("ai push: " + messages[1]);
+*/
+
+
+
+    messages.push({text: prompt, user: "user"});
+
+    AIfunc.askAI(res, prompt, "myDataset.csv", addAnswerAndSend);
+
+
+
+
+    /*
     axios.post(`${backend}/prompt/generate`, {data: req.body}
     ).then(response => {
         messages.push({text: response.data, user: "AI"})
@@ -52,7 +69,9 @@ exports.chat_post = function(req, res) {
         console.log(messages)
         res.render("chat", {title: "Chat", messages: messages})
     });
-    
+    */
+
+
 }
 
 exports.chat_dataset_get = function(req, res){
@@ -73,10 +92,22 @@ exports.chat_dataset_get = function(req, res){
     }    
 }
 
+/*
+function testAIMessage(res, prompt, dataset, callback) {
 
-exports.testAIMessage = (req, res) => {
+    //prompt = "What movies is in first place";
+    //dataset = "context1Movie.csv";
+    AIfunc.askAI(prompt, dataset, callback);
+}
+*/
 
-    let ans = AIfunc.askAI("Hello to AI", "d1d2")
 
-    //res.render("chat", {title: ans, prompts: ans})
+function addAnswerAndSend(res, ans){
+    messages.push({text: ans, user: "AI"});
+
+    if (messages.length >= 6) {
+        messages.push({text: "Please try another prompt or dataset", user: "AI"});
+    }
+
+    res.render("chat", {title: "Chat", messages: messages});
 }

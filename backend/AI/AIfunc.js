@@ -1,27 +1,29 @@
+const getPythonPath = require('./PyPath');
+exports.askAI = (res, question, selectedDataset, callback) => {
 
-exports.askAI = (question, selectedDataset) => {
 
     console.log("AskAI called...")
     const spawn = require("child_process").spawn;
 
     //Path to your python exe
+
     const pythonExePath = "C:/Users/stefa/AppData/Local/Programs/Python/Python312/python.exe";
+
+    //const pythonExePath = getPythonPath();
     //Path to python script, Might need absolut path
-    const AIPath = "C:/Ting/Projects/UnderstandingGenerativeAI/backend/AI/DummyAI.py";
+    const AIPath = "C:/Ting/Projects/UnderstandingGenerativeAI/backend/AI/AIScript.py";
 
-    const ask = spawn(pythonExePath,[AIPath, question, selectedDataset] );
+    const ask = spawn(pythonExePath, [AIPath, question, selectedDataset], {stdio: "inherit"});
 
-    let answer;
+    let ans;
 
     ask.stdout.on('data', (data) => {
         console.log(data.toString()); // Shows the answer in the terminal
-        answer = data.toString()
-    } )
-    console.log("AskAI done...")
-
-    return answer;
-
-
+        console.log("AskAI done...")
+        ans = data.toString();
+        callback(res, ans);
+    })
 
 }
+
 
