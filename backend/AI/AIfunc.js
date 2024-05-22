@@ -7,7 +7,7 @@ exports.askAI = (res, question, selectedDataset, callback) => {
 
     //Path to your python exe
 
-    const pythonExePath = "C:/Users/stefa/AppData/Local/Programs/Python/Python312/python.exe";
+    const pythonExePath = "C:/Users/Mathias/AppData/Local/Programs/Python/Python312/python.exe";
 
     //const pythonExePath = getPythonPath();
     //Path to python script, Might need absolut path
