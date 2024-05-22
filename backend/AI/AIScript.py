@@ -2,7 +2,7 @@ import pickle
 import csv
 
   #load model from pickle file
-myModel = "p6AIModel10k5e.pkl"
+myModel = "./../../backend/AI/p6AIModel10k5e.pkl"
 with open(myModel, 'rb') as file:
     model = pickle.load(file)
 
