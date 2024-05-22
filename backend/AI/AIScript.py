@@ -1,10 +1,17 @@
+import sys
+
+questions = sys.argv[1]
+datasets = sys.argv[2]
+
+
 import pickle
 import csv
 
   #load model from pickle file
-myModel = "p6AIModel10k5e.pkl"
-with open(myModel, 'rb') as file:
-    model = pickle.load(file)
+#myModel = "p6AIModel10k5e.pkl"
+#myModel = 'C:/Ting/Projects/UnderstandingGenerativeAI/backend/AI/p6AIModel10k5e.pkl'
+#with open(myModel, 'rb') as file:
+#    model = pickle.load(file)
 
 #from transformers import AutoTokenizer, AutoModelForQuestionAnswering
 
@@ -50,10 +57,7 @@ with open(myModel, 'rb') as file:
 
 #   return predicted_answer
 
-import sys
 
-questions = sys.argv[1]
-datasets = sys.argv[2]
 
 answer = "Hello, I am stupid dummy AI. "
 #answer = generateResponse(questions, datasets)

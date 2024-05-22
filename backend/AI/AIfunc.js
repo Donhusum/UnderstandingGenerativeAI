@@ -11,9 +11,9 @@ exports.askAI = (res, question, selectedDataset, callback) => {
 
     //const pythonExePath = getPythonPath();
     //Path to python script, Might need absolut path
-    const AIPath = "C:/Ting/Projects/UnderstandingGenerativeAI/backend/AI/AIScript.py";
+    const AIPath = "./../../backend/AI/AIScript.py";
 
-    const ask = spawn(pythonExePath, [AIPath, question, selectedDataset], {stdio: "inherit"});
+    const ask = spawn(pythonExePath, [AIPath, question, selectedDataset]);
 
     let ans;
 
