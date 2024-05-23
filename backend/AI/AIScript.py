@@ -3,7 +3,6 @@ import sys
 #questions = sys.argv[1]
 #datasets = sys.argv[2]
 
-
 import pickle
 import csv
 
@@ -27,12 +26,11 @@ import torch
 device = torch.device("cpu")
 model.to(device)
 
-
-def generateResponse(fromJS)
+def generateResponse(fromJS):
 
     fromJS = fromJS.split("\n")
 
-    if fromJS[1] == "":
+    if len(fromJS) < 2:
         return "Select a dataset to search for the answer."
 
     context = ''
@@ -75,4 +73,7 @@ def generateResponse(fromJS)
 #sys.stdout.flush()
 
 for line in sys.stdin:
-    print(generateResponse(line.strip())
+    ans = generateResponse(line.strip())
+    print(ans)
+    #print(line.strip())
+    sys.stdout.flush()

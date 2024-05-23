@@ -46,7 +46,7 @@ exports.chat_post = async function (req, res) {
 
     messages.push({text: prompt, user: "user"});
 
-    AIfunc.askAI(res, prompt, "./../../backend/AI/contextTrue.csv");
+    AIfunc.askAI(res, prompt, "");
 
 
 

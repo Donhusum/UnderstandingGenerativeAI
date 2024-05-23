@@ -1,5 +1,5 @@
 const PyPath = require('./PyPath');
-const {addAnswerAndSend} = require("../../frontend/controllers/chatController");
+const Cont = require("../../frontend/controllers/chatController");
 
 let resGlobal;
 
@@ -28,7 +28,7 @@ ask.stdout.on('data', (data) => {
     console.log(data.toString()); // Shows the answer in the terminal
 
     let ans = data.toString();
-    addAnswerAndSend(resGlobal, ans);
+    Cont.addAnswerAndSend(resGlobal, ans);
 })
 // Handle error output from the Python script
 ask.stderr.on('data', (data) => {
@@ -36,6 +36,7 @@ ask.stderr.on('data', (data) => {
 });
 function sendDataToPython(data) {
     ask.stdin.write(`${data}\n`);
+    console.log("Done sending")
 }
 
 
