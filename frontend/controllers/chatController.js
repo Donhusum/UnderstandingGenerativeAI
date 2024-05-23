@@ -46,7 +46,7 @@ exports.chat_post = async function (req, res) {
 
     messages.push({text: prompt, user: "user"});
 
-    AIfunc.askAI(res, prompt, "./../../backend/AI/contextTrue.csv", addAnswerAndSend);
+    AIfunc.askAI(res, prompt, "./../../backend/AI/contextTrue.csv");
 
 
 
@@ -102,7 +102,7 @@ function testAIMessage(res, prompt, dataset, callback) {
 */
 
 
-function addAnswerAndSend(res, ans){
+exports.addAnswerAndSend = function (res, ans){
     messages.push({text: ans, user: "AI"});
 
     if (messages.length >= 6) {
