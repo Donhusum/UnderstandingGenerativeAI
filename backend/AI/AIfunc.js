@@ -1,11 +1,13 @@
 const PyPath = require('./PyPath');
 const {addAnswerAndSend} = require("../../frontend/controllers/chatController");
 
+let resGlobal;
+
 exports.askAI = (res, question, selectedDataset) => {
 
 
     console.log("AskAI called...")
-
+    resGlobal = res;
 
     sendDataToPython(question + "\n" + selectedDataset)
 
@@ -26,7 +28,7 @@ ask.stdout.on('data', (data) => {
     console.log(data.toString()); // Shows the answer in the terminal
 
     let ans = data.toString();
-    addAnswerAndSend(res, ans);
+    addAnswerAndSend(resGlobal, ans);
 })
 // Handle error output from the Python script
 ask.stderr.on('data', (data) => {
