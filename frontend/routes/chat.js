@@ -7,7 +7,7 @@ router.get('/', chat_controller.chat_get);
 
 router.post('/', chat_controller.chat_post);
 
-router.get('/dataset', chat_controller.chat_dataset_get);
+//router.get('/dataset', chat_controller.chat_dataset_get);
 
 //router.get('/info', chat_controller.testAIMessage)
 
