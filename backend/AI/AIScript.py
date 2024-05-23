@@ -27,9 +27,13 @@ import torch
 device = torch.device("cpu")
 model.to(device)
 
+
 def generateResponse(fromJS)
 
     fromJS = fromJS.split("\n")
+
+    if fromJS[1] == "":
+        return "Select a dataset to search for the answer."
 
     context = ''
     with open(fromJS[1], newline='') as contextTrue:
