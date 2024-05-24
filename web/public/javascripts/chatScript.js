@@ -86,3 +86,6 @@ function updateTextArea(message){
     textContainer.appendChild(bubble);
     bubble.scrollIntoView()
 }
+
+
+//.scrollIntoView()

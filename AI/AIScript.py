@@ -36,6 +36,10 @@ def generateResponse(fromJS):
         with open(fromJS[i], newline='') as contextCSV:
             csvPointer = csv.reader(contextCSV)
             for row in csvPointer:
+                #row_str = ','.join(row)
+                #specialRows = row_str.replace('"', '""').replace(',', '","').replace('“','"').replace('”','"')
+                #context = context + specialRows + ' '
+                #print(specialRows) “ ”
                 context = context + ' '.join(row) + ' '
 
     # current context is just as an example
