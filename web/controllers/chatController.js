@@ -47,7 +47,7 @@ exports.chat_post = async function (req, res) {
 
     messages.push({text: prompt, user: "user"});
 
-    AIfunc.askAI(res, prompt, "");
+    AIfunc.askAI(res, prompt, "C:/Ting/Projects/UnderstandingGenerativeAI/AI/contextTrue.csv");
 
 
 
