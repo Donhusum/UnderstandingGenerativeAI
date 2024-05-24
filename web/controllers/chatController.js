@@ -1,7 +1,8 @@
 const axios = require('axios');
+const AIfunc = require("../../AI/AIfunc");
 const backend = "http://localhost:8888";
 
-const AIfunc = require('./../../backend/AI/AIfunc')
+
 
 let messages = [];
 
@@ -24,16 +25,16 @@ exports.chat_post = async function (req, res) {
     let dataState = "";
 
     if (data1State) {
-        dataState = "./../../backend/AI/context1Movie.csv";
+        dataState = "./../../AI/data/context1Movie.csv";
     }
     if (data2State) {
-        dataState = "./../../backend/AI/context2Shoes.csv";
+        dataState = "./../../AI/data/context2Shoes.csv";
     }
     if (data3State) {
-        dataState = "./../../backend/AI/context3Cookies.csv";
+        dataState = "./../../AI/data/context3Cookies.csv";
     }
     if (data4State) {
-        dataState = "./../../backend/AI/contextTrue.csv";
+        dataState = "./../../AI/data/contextTrue.csv";
     }
 
     messages.push({text: prompt, user: "user"});
