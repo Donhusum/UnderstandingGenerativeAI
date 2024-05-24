@@ -16,10 +16,11 @@ exports.askAI = (res, question, selectedDataset) => {
 
 }
 const spawn = require("child_process").spawn;
-//Path to your python exe
 
+//Path to your python exe
 //const pythonExePath = "C:/Users/stefa/AppData/Local/Microsoft/WindowsApps/python.exe"
 const pythonExePath = "C:/Users/stefa/AppData/Local/Programs/Python/Python312/python.exe";
+
 //Path to python script, Might need absolut path
 //const pythonExePath = getPythonPath();
 const AIPath = "./../../AI/AIScript.py";
@@ -39,10 +40,11 @@ ask.stdout.on('data', (data) => {
 ask.stderr.on('data', (data) => {
     console.error(`Error from Python: ${data}`);
 });
+
+
 function sendDataToPython(data) {
     console.log("Sending to python: " + data)
     ask.stdin.write(`${data}\n`);
     console.log("Done sending")
 }
-
 

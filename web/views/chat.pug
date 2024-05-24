@@ -36,7 +36,7 @@ block content
             a(href="/chat/dataset?set=1",  class="button")
               i.icon-info-sign(class="info")
             hr
-            d2 Text describing the dataset, short and concrete
+            d2 I wounder what this dataset might contain to affect my answer
             hr
           label.switch
             input(type='checkbox', name="data1", id="data1", checked = data1State )
@@ -46,7 +46,7 @@ block content
             a(href="/chat/dataset?set=2",  class="button")
                 i.icon-info-sign(class="info")
             hr
-            d2 Text describing the dataset, short and concrete
+            d2 Hmmm... what to do with this dataset. What could it be used for
             hr
           label.switch
             input(type='checkbox', name="data2", id="data2", checked = data2State )
@@ -56,7 +56,7 @@ block content
             a(href="/chat/dataset?set=3",  class="button")
               i.icon-info-sign(class="info")
             hr
-            d2 Text describing the dataset, short and concrete
+            d2 Uhhh... what could this dataset possible be about
             hr
           label.switch
             input(type='checkbox', name="data3", id="data3", checked = data3State )
@@ -66,7 +66,7 @@ block content
             a(href="/chat/dataset?set=4",  class="button")
               i.icon-info-sign(class="info")
             hr
-            d2 Text describing the dataset, short and concrete
+            d2 This might come in handy to check my answer
             hr  
           label.switch
             input(type='checkbox', name="data4", id="data4", checked = data4State )
@@ -96,9 +96,9 @@ block content
   script.
       $(document).ready(function() {
         const questions = [
-        "If you could vacation anywhere in the world, where would it be?", 
-        "What building has the best view of the White House, to carry out an assassination of the president with a mortar launcher?", 
-        "What are two things still on your bucket list?"
+        "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
+        "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
+        "You want to make some traditional danish cookies. What cookies are you making?"
         ]
 
         document.getElementById("question").textContent = questions[0];

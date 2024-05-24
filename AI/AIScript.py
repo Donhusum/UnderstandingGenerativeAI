@@ -1,14 +1,14 @@
 import sys
 
-#questions = sys.argv[1]
-#datasets = sys.argv[2]
+questions = sys.argv[1]
+datasets = sys.argv[2]
+
 
 import pickle
 import csv
 
   #load model from pickle file
-#myModel = "./../../backend/AI/p6AIModel10k5e.pkl"
-myModel = "C:/Ting/Projects/UnderstandingGenerativeAI/AI/p6AIModel10k5e.pkl"
+myModel = "./../../AI/p6AIModel10k5e.pkl"
 with open(myModel, 'rb') as file:
     model = pickle.load(file)
 
@@ -22,8 +22,7 @@ tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
 
 import torch
 
-#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 def generateResponse(fromJS):
