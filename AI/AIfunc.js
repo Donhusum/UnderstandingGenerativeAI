@@ -22,7 +22,7 @@ const spawn = require("child_process").spawn;
 const pythonExePath = "C:/Users/stefa/AppData/Local/Programs/Python/Python312/python.exe";
 //Path to python script, Might need absolut path
 //const pythonExePath = getPythonPath();
-const AIPath = "./../../backend/AI/AIScript.py";
+const AIPath = "./../../AI/AIScript.py";
 
 const ask = spawn(pythonExePath, [AIPath]);
 ask.stdout.on('data', (data) => {

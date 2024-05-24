@@ -8,7 +8,7 @@ import csv
 
   #load model from pickle file
 #myModel = "./../../backend/AI/p6AIModel10k5e.pkl"
-myModel = "C:/Ting/Projects/UnderstandingGenerativeAI/backend/AI/p6AIModel10k5e.pkl"
+myModel = "C:/Ting/Projects/UnderstandingGenerativeAI/AI/p6AIModel10k5e.pkl"
 with open(myModel, 'rb') as file:
     model = pickle.load(file)
 
