@@ -1,7 +1,8 @@
 const axios = require('axios');
+const AIfunc = require("../../AI/AIfunc");
 const backend = "http://localhost:8888";
 
-const AIfunc = require('./../../backend/AI/AIfunc')
+
 
 let messages = [];
 /*let messages = [

@@ -1,5 +1,6 @@
 const PyPath = require('./PyPath');
-const Cont = require("../../frontend/controllers/chatController");
+const Cont = require("../web/controllers/chatController");
+
 
 let resGlobal;
 
