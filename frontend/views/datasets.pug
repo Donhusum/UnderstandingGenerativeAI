@@ -1,0 +1,35 @@
+extends layout 
+
+block header
+  link(rel='stylesheet', href='/stylesheets/dataset.css')
+
+block content
+  .page-container
+    h1(id = "headline")=headline
+    hr
+    p(id = "content")=content
+    
+    button(type="button", class="example", onclick="seeExample()") See example
+    #popup.popup
+      img(src='/images/sephiroth.jpg')
+  
+
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+
+  script.
+    function seeExample() {
+      var popup = document.getElementById('popup');
+      popup.style.display = 'block';
+
+      var overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      document.body.appendChild(overlay);
+
+      window.onclick = function(event) {
+        if (event.target == overlay) {
+            popup.style.display = 'none';
+            
+            overlay.remove();
+        }
+      }
+    }

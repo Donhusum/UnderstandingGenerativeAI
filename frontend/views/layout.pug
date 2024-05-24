@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    title= title
+
+    link(rel="stylesheet", href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')
+
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet")
+
+
+    block header
+
+  body
+    block topbar
+      div(class="top-bar")
+        .center-wrapper
+          a(href="/chat")
+            h1 ChatXxX
+        nav
+          ul(class="nav-links")
+              a(class={activepage: title === "Chat"} href="/chat")
+                li Chat
+              a(class={activepage: title === "Info"} href="/info")
+                li Info
+
+    div(class="content-container")
+      block content

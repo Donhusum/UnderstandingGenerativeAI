@@ -1,0 +1,126 @@
+extends layout 
+
+block header
+  link(rel='stylesheet', href='/stylesheets/chat.css')
+  
+
+block content
+  .container
+    .left-side
+      p(id="question")
+      .previous-next-buttons 
+        button(type='button', id='previous', class="PNButtons") Previous
+        button(type='button', id='next', class="PNButtons") Next
+      .text-container  
+        each message in messages
+          if message.user == 'user'
+            .bubble-user
+              span= message.text
+              br
+          if message.user == 'AI'
+            .bubble-ai
+              span= message.text
+              br
+      form(action='/chat', method='POST', id="chatForm")
+        .v-textfield
+          input(type='text', name='prompt', placeholder='Enter prompt here', autofocus)
+          button(type='submit') Enter
+      
+          
+    .right-side
+      .title-text-container
+        t  Toggle any of these datasets on or off, to see how the AI will respond with different data and biases
+      .data-set-grid
+        .data-set-top
+          d Dataset One
+            a(href="/chat/dataset?set=1",  class="button")
+              i.icon-info-sign(class="info")
+            hr
+            d2 I wounder what this dataset might contain to affect my answer
+            hr
+          label.switch
+            input(type='checkbox', name="data1", id="data1", checked = data1State )
+            span.slider
+        .data-set-top
+          d Dataset Two
+            a(href="/chat/dataset?set=2",  class="button")
+                i.icon-info-sign(class="info")
+            hr
+            d2 Hmmm... what to do with this dataset. What could it be used for
+            hr
+          label.switch
+            input(type='checkbox', name="data2", id="data2", checked = data2State )
+            span.slider
+        .data-set-bottom
+          d Dataset Three
+            a(href="/chat/dataset?set=3",  class="button")
+              i.icon-info-sign(class="info")
+            hr
+            d2 Uhhh... what could this dataset possible be about
+            hr
+          label.switch
+            input(type='checkbox', name="data3", id="data3", checked = data3State )
+            span.slider
+        .data-set-bottom
+          d Dataset Four
+            a(href="/chat/dataset?set=4",  class="button")
+              i.icon-info-sign(class="info")
+            hr
+            d2 This might come in handy to check my answer
+            hr  
+          label.switch
+            input(type='checkbox', name="data4", id="data4", checked = data4State )
+            span.slider
+
+  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+  script.
+      $(document).ready(function() {
+        $('#chatForm').submit(function(event) {
+          
+          event.preventDefault();
+
+          var data1 = $('#data1').is(':checked') ? $('#data1').val() : '';
+          var data2 = $('#data2').is(':checked') ? $('#data2').val() : '';
+          var data3 = $('#data3').is(':checked') ? $('#data3').val() : '';
+          var data4 = $('#data4').is(':checked') ? $('#data4').val() : '';
+
+          $(this).append('<input type="hidden" name="data1" value="' + data1 + '">');
+          $(this).append('<input type="hidden" name="data2" value="' + data2 + '">');
+          $(this).append('<input type="hidden" name="data3" value="' + data3 + '">');
+          $(this).append('<input type="hidden" name="data4" value="' + data4 + '">');
+         
+        this.submit();
+      });
+    });
+
+  script.
+      $(document).ready(function() {
+        const questions = [
+        "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
+        "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
+        "You want to make some traditional danish cookies. What cookies are you making?"
+        ]
+
+        document.getElementById("question").textContent = questions[0];
+
+        $('#next').click(function(event){
+          var text = document.getElementById("question").textContent;
+          
+          for(var i = 0; i < 2; i++){
+            if (text == questions[i]){
+              document.getElementById("question").textContent = questions[i+1];
+            }
+          }
+        })
+
+        $('#previous').click(function(event){
+          var text = document.getElementById("question").textContent;
+          
+          for(var i = 1; i <= 2; i++){
+            if (text == questions[i]){
+              document.getElementById("question").textContent = questions[i-1];
+            }
+          }
+        })
+      });
+          
