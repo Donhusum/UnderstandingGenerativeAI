@@ -5,25 +5,19 @@ block header
   
 
 block content
+
   .container
     .left-side
-      p(id="question")
+      p(id='someBadQs') Hello world
       .previous-next-buttons 
         button(type='button', id='previous', class="PNButtons") Previous
         button(type='button', id='next', class="PNButtons") Next
-      .text-container  
-        each message in messages
-          if message.user == 'user'
-            .bubble-user
-              span= message.text
-              br
-          if message.user == 'AI'
-            .bubble-ai
-              span= message.text
-              br
+      .text-container
+        #textContainers
+
       form(action='/chat', method='POST', id="chatForm")
         .v-textfield
-          input(type='text', name='prompt', placeholder='Enter prompt here', autofocus)
+          input(id='userInput', type='text', name='prompt', placeholder='Enter prompt here', autofocus)
           button(type='submit') Enter
       
           
@@ -73,54 +67,6 @@ block content
             span.slider
 
   script(src='https://code.jquery.com/jquery-3.6.0.min.js')
-  script.
-      $(document).ready(function() {
-        $('#chatForm').submit(function(event) {
-          
-          event.preventDefault();
-
-          var data1 = $('#data1').is(':checked') ? $('#data1').val() : '';
-          var data2 = $('#data2').is(':checked') ? $('#data2').val() : '';
-          var data3 = $('#data3').is(':checked') ? $('#data3').val() : '';
-          var data4 = $('#data4').is(':checked') ? $('#data4').val() : '';
-
-          $(this).append('<input type="hidden" name="data1" value="' + data1 + '">');
-          $(this).append('<input type="hidden" name="data2" value="' + data2 + '">');
-          $(this).append('<input type="hidden" name="data3" value="' + data3 + '">');
-          $(this).append('<input type="hidden" name="data4" value="' + data4 + '">');
-         
-        this.submit();
-      });
-    });
-
-  script.
-      $(document).ready(function() {
-        const questions = [
-        "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
-        "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
-        "You want to make some traditional danish cookies. What cookies are you making?"
-        ]
-
-        document.getElementById("question").textContent = questions[0];
-
-        $('#next').click(function(event){
-          var text = document.getElementById("question").textContent;
-          
-          for(var i = 0; i < 2; i++){
-            if (text == questions[i]){
-              document.getElementById("question").textContent = questions[i+1];
-            }
-          }
-        })
-
-        $('#previous').click(function(event){
-          var text = document.getElementById("question").textContent;
-          
-          for(var i = 1; i <= 2; i++){
-            if (text == questions[i]){
-              document.getElementById("question").textContent = questions[i-1];
-            }
-          }
-        })
-      });
+  script(src="javascripts/chatScript.js")
+  
           

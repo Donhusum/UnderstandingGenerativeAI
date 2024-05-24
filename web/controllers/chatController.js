@@ -2,45 +2,49 @@ const axios = require('axios');
 const AIfunc = require("../../AI/AIfunc");
 const backend = "http://localhost:8888";
 
-
+const gameQuestions = [
+    "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
+    "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
+    "You want to make some traditional danish cookies. What cookies are you making?"
+]
 
 let messages = [];
 
 exports.chat_get = function(req, res) {
-    res.render("chat", {title: "Chat", messages: messages})
+    res.render("chat", {messages: messages})
 };
 
 exports.chat_post = async function (req, res) {
     let {prompt: prompt} = req.body;
+    let {dataset: dataset} = req.body;
+    console.log(prompt)
+    console.log("Data from post: ")
+    console.log(req.body)
+
+
 
     if (prompt == "") {
         return res.render("chat", {title: "Chat", messages: messages})
     }
 
-    var data1State = req.body.data1 == 'on' ? true : false;
-    var data2State = req.body.data2 == 'on' ? true : false;
-    var data3State = req.body.data3 == 'on' ? true : false;
-    var data4State = req.body.data4 == 'on' ? true : false;
-
     let dataState = "";
 
-    if (data1State) {
-        dataState = "./../../AI/data/context1Movie.csv";
+    if (dataset[0]){
+        dataState += "$$./../../AI/data/context1Movie.csv";
     }
-    if (data2State) {
-        dataState = "./../../AI/data/context2Shoes.csv";
+    if (dataset[1]){
+        dataState += "$$./../../AI/data/context2Shoes.csv";
     }
-    if (data3State) {
-        dataState = "./../../AI/data/context3Cookies.csv";
+    if (dataset[2]){
+        dataState += "$$./../../AI/data/context3Cookies.csv";
     }
-    if (data4State) {
-        dataState = "./../../AI/data/contextTrue.csv";
+    if (dataset[3]){
+        dataState += "$$./../../AI/data/contextTrue.csv";
     }
 
     messages.push({text: prompt, user: "user"});
 
     AIfunc.askAI(res, prompt, dataState);
-
 }
 
 exports.chat_dataset_get = function(req, res){
@@ -62,7 +66,8 @@ exports.chat_dataset_get = function(req, res){
 }
 
 exports.addAnswerAndSend = function(res, ans){
-    messages.push({text: ans, user: "AI"});
+    console.log("Im gonna send: " + ans.trim())
+    messages.push({text: ans.trim(), user: "AI"});
 
     /*
     if (messages.length >= 6) {
@@ -70,5 +75,21 @@ exports.addAnswerAndSend = function(res, ans){
     }
     */
 
-    res.render("chat", {title: "Chat", messages: messages});
+    res.send({messages: messages})
+}
+
+
+exports.chat_next_question = function (res, req){
+    let i;
+    let q = req.query.q;
+    if ((i = gameQuestions.indexOf(q)) < 2) {
+        res.render("chat", {gameQuestion: gameQuestions[i+1]})
+    }
+}
+exports.chat_previous_question = function (res, req){
+    let i;
+    let q = req.query.q;
+    if ((i = gameQuestions.indexOf(q)) > 0) {
+        res.render("chat", {gameQuestion: gameQuestions[i-1]})
+    }
 }

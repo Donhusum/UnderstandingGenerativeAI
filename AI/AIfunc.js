@@ -9,7 +9,7 @@ exports.askAI = (res, question, selectedDataset) => {
     console.log("AskAI called...")
     resGlobal = res;
 
-    sendDataToPython(question + "$$" + selectedDataset)
+    sendDataToPython(question + selectedDataset)
 
 }
 const spawn = require("child_process").spawn;

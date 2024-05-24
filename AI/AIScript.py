@@ -28,14 +28,15 @@ def generateResponse(fromJS):
 
     fromJS = fromJS.split('$$')
 
-    if fromJS[1] == "":
+    if len(fromJS) < 2:
         return "Select a dataset to search for the answer."
-
     context = ''
-    with open(fromJS[1], newline='') as contextTrue:
-        csvPointer = csv.reader(contextTrue)
-        for row in csvPointer:
-            context = context + ' '.join(row) + ' '
+
+    for i in range(1, len(fromJS)):
+        with open(fromJS[i], newline='') as contextCSV:
+            csvPointer = csv.reader(contextCSV)
+            for row in csvPointer:
+                context = context + ' '.join(row) + ' '
 
     # current context is just as an example
     #question = ""
@@ -60,18 +61,8 @@ def generateResponse(fromJS):
 
     return predicted_answer
 
-
-
-#answer = "Hello, I am stupid dummy AI. "
-#answer = generateResponse(questions, datasets)
-
-
-#print(answer)
-#print(predicted_answer)
-#sys.stdout.flush()
-
 for line in sys.stdin:
     ans = generateResponse(line.strip())
     print(ans)
-    #print(line.strip())
+
     sys.stdout.flush()
