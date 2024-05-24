@@ -42,7 +42,7 @@ exports.chat_post = async function (req, res) {
     AIfunc.askAI(res, prompt, dataState, addAnswerAndSend);
 
 }
-/*
+
 exports.chat_dataset_get = function(req, res){
     const dataset = req.query.set-1;
 
@@ -59,7 +59,7 @@ exports.chat_dataset_get = function(req, res){
             res.render("datasets", {title: "Info", headline: headlines[i], content: contents[i]})
         }
     }
-}*/
+}
 
 function addAnswerAndSend(res, ans){
     messages.push({text: ans, user: "AI"});
