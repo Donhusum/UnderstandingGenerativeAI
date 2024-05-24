@@ -61,7 +61,7 @@ exports.chat_dataset_get = function(req, res){
     }
 }
 
-function addAnswerAndSend(res, ans){
+exports.addAnswerAndSend = function(res, ans){
     messages.push({text: ans, user: "AI"});
 
     /*

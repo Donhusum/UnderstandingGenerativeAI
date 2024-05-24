@@ -1,8 +1,7 @@
 import sys
 
-questions = sys.argv[1]
-datasets = sys.argv[2]
-
+#questions = sys.argv[1]
+#datasets = sys.argv[2]
 
 import pickle
 import csv

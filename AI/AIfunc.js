@@ -1,18 +1,15 @@
 const PyPath = require('./PyPath');
-const Cont = require("../web/controllers/chatController");
+const Cont = require("./../web/controllers/chatController");
 
 
 let resGlobal;
 
 exports.askAI = (res, question, selectedDataset) => {
 
-
     console.log("AskAI called...")
     resGlobal = res;
 
     sendDataToPython(question + "$$" + selectedDataset)
-
-    console.log("AskAI done...")
 
 }
 const spawn = require("child_process").spawn;
@@ -29,7 +26,7 @@ const ask = spawn(pythonExePath, [AIPath]);
 
 
 ask.stdout.on('data', (data) => {
-    console.log(data.toString()); // Shows the answer in the terminal
+    console.log("Response from python: " + data.toString()); // Shows the answer in the terminal
 
     let ans = data.toString();
     Cont.addAnswerAndSend(resGlobal, ans);
@@ -45,6 +42,5 @@ ask.stderr.on('data', (data) => {
 function sendDataToPython(data) {
     console.log("Sending to python: " + data)
     ask.stdin.write(`${data}\n`);
-    console.log("Done sending")
 }
 
