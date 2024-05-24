@@ -11,7 +11,7 @@ let messages = [];
 let textContainer = document.getElementById('textContainers')
 textContainer.className = 'text-container';
 
-let gameQuestion = document.getElementById("someBadQs");
+let gameQuestion = document.getElementById("questions");
 
 gameQuestion.textContent = gameQuestions[0];
 
@@ -21,13 +21,13 @@ let previousQ = document.getElementById("previous");
 
 nextQ.onclick = () => {
     if (i<2){i++}
-    gameQuestion.innerHTML = gameQuestions[i];
+    gameQuestion.textContent = gameQuestions[i];
     console.log(messages)
 }
 
 previousQ.onclick = () => {
     if (i>0){i--}
-    gameQuestion.innerHTML = gameQuestions[i];
+    gameQuestion.textContent = gameQuestions[i];
 }
 
 
@@ -84,4 +84,5 @@ function updateTextArea(message){
     bubble.appendChild(text);
     bubble.appendChild(document.createElement('br'));
     textContainer.appendChild(bubble);
+    bubble.scrollIntoView()
 }
