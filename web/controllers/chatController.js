@@ -21,7 +21,7 @@ exports.chat_post = async function (req, res) {
 
 
     if (prompt == "") {
-        return res.render("chat")
+        res.send({message: {text: "", user: "AI"}})
     }
 
     let dataState = "";

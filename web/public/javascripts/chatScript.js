@@ -70,7 +70,8 @@ console.log(userInput)
 
 document.getElementById('chatForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-    console.log(userInput.value)
+    console.log("User input: " + userInput.value)
+    if (userInput.value == "") return;
     let userMessage = {text: userInput.value, user: "user"}
     messages[i].push(userMessage)
     updateTextArea(userMessage)
@@ -81,9 +82,6 @@ document.getElementById('chatForm').addEventListener('submit', function(event) {
     $('#data2').is(':checked') ? datasets.push(true) : datasets.push(false);
     $('#data3').is(':checked') ? datasets.push(true) : datasets.push(false);
     $('#data4').is(':checked') ? datasets.push(true) : datasets.push(false);
-
-    console.log(datasets)
-
 
     const formData = {prompt: userInput.value, dataset: datasets}
     console.log(formData)
