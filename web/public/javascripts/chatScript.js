@@ -5,6 +5,11 @@ const gameQuestions = [
     "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
     "You want to make some traditional danish cookies. What cookies are you making?"
 ]
+const answers = [
+    "adidas",
+    "barbie",
+    "vaniljekranse"
+]
 
 let messages = [[],[],[]];
 
@@ -42,6 +47,22 @@ previousQ.onclick = () => {
     gameQuestion.textContent = gameQuestions[i];
 }
 
+let answerButton = document.getElementById("answer");
+let answerBox = document.getElementById("answerInput");
+answerButton.onclick = ()=>{
+    if (answerBox.value.toLowerCase() == answers[i].toLowerCase()){
+        answerButton.textContent = "Correct";
+        answerButton.style.backgroundColor = "green"
+    } else {
+        answerButton.textContent = "Incorrect";
+        answerButton.style.backgroundColor = "red"
+    }
+    setTimeout(()=>{
+        answerButton.textContent = "Submit"
+        answerButton.style.backgroundColor = "white"
+    }, 2000)
+}
+
 
 let userInput = document.getElementById('userInput')
 console.log(userInput)
@@ -49,7 +70,7 @@ console.log(userInput)
 
 document.getElementById('chatForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-    console.log(userInput.value)
+    console.log("User input: " + userInput.value)
     if (userInput.value == "") return;
     let userMessage = {text: userInput.value, user: "user"}
     messages[i].push(userMessage)
@@ -61,9 +82,6 @@ document.getElementById('chatForm').addEventListener('submit', function(event) {
     $('#data2').is(':checked') ? datasets.push(true) : datasets.push(false);
     $('#data3').is(':checked') ? datasets.push(true) : datasets.push(false);
     $('#data4').is(':checked') ? datasets.push(true) : datasets.push(false);
-
-    console.log(datasets)
-
 
     const formData = {prompt: userInput.value, dataset: datasets}
     console.log(formData)

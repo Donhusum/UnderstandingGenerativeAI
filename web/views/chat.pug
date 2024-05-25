@@ -12,13 +12,17 @@ block content
       .previous-next-buttons 
         button(type='button', id='previous', class="PNButtons") Previous
         button(type='button', id='next', class="PNButtons") Next
+        div(style="margin: 20px")
+        input(type='text', id="answerInput", placeholder='Enter answer here')
+        button(type='button', id='answer', class="PNButtons") Submit
+      hr
       .text-container
         #textContainers
 
       form(action='/chat', method='POST', id="chatForm")
         .v-textfield
           input(id='userInput', type='text', name='prompt', placeholder='Enter prompt here', autofocus)
-          button(type='submit') Enter
+          button(type='submit', id='sendToAI', class="PNButtons") Enter
       
           
     .right-side
