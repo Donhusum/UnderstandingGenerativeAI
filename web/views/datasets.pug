@@ -8,16 +8,13 @@ block content
     h1(id = "headline")=headline
     hr
     p(id = "content")=content
-    
-    button(type="button", class="example", onclick="seeExample()") See example
-    #popup.popup
-      img(src='/images/sephiroth.jpg')
-  
 
-  script(src='https://code.jquery.com/jquery-3.6.0.min.js')
+    button(type="button", class="example", onclick="seeDataset()") See dataset
+    #popup.popup
+      code(id='csvContent')
 
   script.
-    function seeExample() {
+    async function seeDataset() {
       var popup = document.getElementById('popup');
       popup.style.display = 'block';
 
@@ -25,10 +22,26 @@ block content
       overlay.className = 'overlay';
       document.body.appendChild(overlay);
 
+      var csvContent = document.getElementById('csvContent');
+
+      const selectHeadline = document.getElementById('headline').textContent;
+      const headlines = ["Dataset one", "Dataset two", "Dataset three", "Dataset four"]
+      const path = ["context1Movie.csv", "context2Shoes.csv", "context3Cookies.csv", "contextTrue.csv"]
+      const response = await fetch('/datasets/' + path[headlines.indexOf(selectHeadline)], {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'text/csv'
+        }
+      });
+      const csvText = await response.text();
+      console.log(csvText);
+
+      csvContent.textContent = csvText;
+
       window.onclick = function(event) {
         if (event.target == overlay) {
             popup.style.display = 'none';
-            
+
             overlay.remove();
         }
       }
