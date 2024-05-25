@@ -15,8 +15,7 @@ exports.askAI = (res, question, selectedDataset) => {
 const spawn = require("child_process").spawn;
 
 //Path to your python exe
-//const pythonExePath = "C:/Users/stefa/AppData/Local/Microsoft/WindowsApps/python.exe"
-const pythonExePath = "C:/Users/stefa/AppData/Local/Programs/Python/Python312/python.exe";
+const pythonExePath = "C:/Users/Mathias/AppData/Local/Programs/Python/Python312/python.exe";
 
 //Path to python script, Might need absolut path
 //const pythonExePath = getPythonPath();
@@ -27,6 +26,7 @@ const ask = spawn(pythonExePath, [AIPath]);
 
 ask.stdout.on('data', (data) => {
     console.log("Response from python: " + data.toString()); // Shows the answer in the terminal
+
 
     let ans = data.toString();
     Cont.addAnswerAndSend(resGlobal, ans);

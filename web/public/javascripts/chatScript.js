@@ -50,6 +50,7 @@ console.log(userInput)
 document.getElementById('chatForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
     console.log(userInput.value)
+    if (userInput.value == "") return;
     let userMessage = {text: userInput.value, user: "user"}
     messages[i].push(userMessage)
     updateTextArea(userMessage)
