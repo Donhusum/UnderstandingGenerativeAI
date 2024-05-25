@@ -5,6 +5,11 @@ const gameQuestions = [
     "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
     "You want to make some traditional danish cookies. What cookies are you making?"
 ]
+const answers = [
+    "adidas",
+    "barbie",
+    "vaniljekranse"
+]
 
 let messages = [[],[],[]];
 
@@ -40,6 +45,22 @@ previousQ.onclick = () => {
         }
     }
     gameQuestion.textContent = gameQuestions[i];
+}
+
+let answerButton = document.getElementById("answer");
+let answerBox = document.getElementById("answerInput");
+answerButton.onclick = ()=>{
+    if (answerBox.value.toLowerCase() == answers[i].toLowerCase()){
+        answerButton.textContent = "Correct";
+        answerButton.style.backgroundColor = "green"
+    } else {
+        answerButton.textContent = "Incorrect";
+        answerButton.style.backgroundColor = "red"
+    }
+    setTimeout(()=>{
+        answerButton.textContent = "Submit"
+        answerButton.style.backgroundColor = "white"
+    }, 2000)
 }
 
 
