@@ -1,12 +1,5 @@
 const AIfunc = require("../../AI/AIfunc");
 
-
-const gameQuestions = [
-    "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
-    "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
-    "You want to make some traditional danish cookies. What cookies are you making?"
-]
-
 exports.chat_get = function(req, res) {
     res.render("chat")
 };
