@@ -6,7 +6,7 @@ const gameQuestions = [
     "You want to make some traditional danish cookies. What cookies are you making?"
 ]
 
-let messages = [];
+let messages = [[],[],[]];
 
 let textContainer = document.getElementById('textContainers')
 textContainer.className = 'text-container';
@@ -20,13 +20,25 @@ let nextQ = document.getElementById("next");
 let previousQ = document.getElementById("previous");
 
 nextQ.onclick = () => {
-    if (i<2){i++}
+    if (i<2){
+        i++
+        textContainer.replaceChildren();
+        for (let b of messages[i]){
+            updateTextArea(b)
+        }
+    }
     gameQuestion.textContent = gameQuestions[i];
     console.log(messages)
 }
 
 previousQ.onclick = () => {
-    if (i>0){i--}
+    if (i>0){
+        i--
+        textContainer.replaceChildren();
+        for (let b of messages[i]){
+            updateTextArea(b)
+        }
+    }
     gameQuestion.textContent = gameQuestions[i];
 }
 
@@ -38,8 +50,9 @@ console.log(userInput)
 document.getElementById('chatForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
     console.log(userInput.value)
-    messages.push({text: userInput.value, user: "user"})
-    updateTextArea(messages[messages.length-1])
+    let userMessage = {text: userInput.value, user: "user"}
+    messages[i].push(userMessage)
+    updateTextArea(userMessage)
 
     let datasets = []
 
@@ -65,9 +78,9 @@ document.getElementById('chatForm').addEventListener('submit', function(event) {
     })
         .then(res => res.json())
         .then(res => {
-            console.log(res.messages)
-            messages = res.messages;
-            updateTextArea(messages[messages.length-1])
+            console.log(res.message)
+            messages[i].push(res.message);
+            updateTextArea(res.message)
         });
 
 })
@@ -86,6 +99,3 @@ function updateTextArea(message){
     textContainer.appendChild(bubble);
     bubble.scrollIntoView()
 }
-
-
-//.scrollIntoView()

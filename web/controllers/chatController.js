@@ -1,6 +1,5 @@
-const axios = require('axios');
 const AIfunc = require("../../AI/AIfunc");
-const backend = "http://localhost:8888";
+
 
 const gameQuestions = [
     "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
@@ -8,10 +7,8 @@ const gameQuestions = [
     "You want to make some traditional danish cookies. What cookies are you making?"
 ]
 
-let messages = [];
-
 exports.chat_get = function(req, res) {
-    res.render("chat", {messages: messages})
+    res.render("chat")
 };
 
 exports.chat_post = async function (req, res) {
@@ -24,7 +21,7 @@ exports.chat_post = async function (req, res) {
 
 
     if (prompt == "") {
-        return res.render("chat", {title: "Chat", messages: messages})
+        return res.render("chat")
     }
 
     let dataState = "";
@@ -41,8 +38,6 @@ exports.chat_post = async function (req, res) {
     if (dataset[3]){
         dataState += "$$./../../AI/data/contextTrue.csv";
     }
-
-    messages.push({text: prompt, user: "user"});
 
     AIfunc.askAI(res, prompt, dataState);
 }
@@ -67,29 +62,10 @@ exports.chat_dataset_get = function(req, res){
 
 exports.addAnswerAndSend = function(res, ans){
     console.log("Im gonna send: " + ans.trim())
-    messages.push({text: ans.trim(), user: "AI"});
-
     /*
     if (messages.length >= 6) {
         messages.push({text: "Please try another prompt or dataset", user: "AI"});
     }
     */
-
-    res.send({messages: messages})
-}
-
-
-exports.chat_next_question = function (res, req){
-    let i;
-    let q = req.query.q;
-    if ((i = gameQuestions.indexOf(q)) < 2) {
-        res.render("chat", {gameQuestion: gameQuestions[i+1]})
-    }
-}
-exports.chat_previous_question = function (res, req){
-    let i;
-    let q = req.query.q;
-    if ((i = gameQuestions.indexOf(q)) > 0) {
-        res.render("chat", {gameQuestion: gameQuestions[i-1]})
-    }
+    res.send({message: {text: ans.trim(), user: "AI"}})
 }
