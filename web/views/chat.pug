@@ -13,8 +13,8 @@ block content
         button(type='button', id='previous', class="PNButtons") Previous
         button(type='button', id='next', class="PNButtons") Next
         div(style="margin: 20px")
-        input(type='text', id="answerInput", placeholder='Enter answer here')
-        button(type='button', id='answer', class="PNButtons") Submit
+        //input(type='text', id="answerInput", placeholder='Enter answer here')
+        //button(type='button', id='answer', class="PNButtons") Submit
       hr
       .text-container
         #textContainers
@@ -61,14 +61,20 @@ block content
             span.slider
         .data-set-bottom
           d Dataset Four
-            a(href="/chat/dataset?set=4",  class="button")
+              a(href="/chat/dataset?set=4",  class="button")
               i.icon-info-sign(class="info")
-            hr
-            d2 This might come in handy to check my answer
-            hr  
+              hr
+              d2 What could this be? I'm so curious
+              hr
           label.switch
-            input(type='checkbox', name="data4", id="data4", checked = data4State )
-            span.slider
+              input(type='checkbox', name="data4", id="data4", checked = data4State )
+              span.slider
+
+      .data-validate
+      d Validate Answer
+        hr
+        input(type='text', id="answerInput", placeholder='Enter answer here')
+        button(type='button', id='answer', class="PNButtons") Submit
 
   script(src='https://code.jquery.com/jquery-3.6.0.min.js')
   script(src="javascripts/chatScript.js")
