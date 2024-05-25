@@ -55,6 +55,10 @@ exports.chat_dataset_get = function(req, res){
 
 exports.addAnswerAndSend = function(res, ans){
     console.log("Im gonna send: " + ans.trim())
+
+    if (ans.trim() === "[CLS]" || ans.trim() === "") {
+        ans = "Please try a different prompt or dataset";
+    }
     /*
     if (messages.length >= 6) {
         messages.push({text: "Please try another prompt or dataset", user: "AI"});
