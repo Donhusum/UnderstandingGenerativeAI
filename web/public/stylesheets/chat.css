@@ -1,11 +1,10 @@
 
   p {
     color: #fff;
-    margin-top: 6rem;
+    margin-top: 10vh;
     max-width: 45vw;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.5rem;
-    position: absolute;
   }
 
   .title-text-container {
@@ -22,7 +21,6 @@
   }
 
   .previous-next-buttons {
-    margin-top: 10rem;
     display:flex;
     margin-inline: auto;
   }
@@ -38,7 +36,6 @@
     font-size: 1rem;
     transition-duration: 0.2s;
     border-radius: 10px;
-    margin-left: 11vw;
   }
   .PNButtons:hover {
     background-color: #262626;
@@ -46,22 +43,12 @@
   }
 
   input[type="text"] {
-    width: 40vw;
+    width: auto;
     height: 4vh;
     text-align: top;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
-    margin-bottom: 0;
-  }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #adadad;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
   }
   
   button[type="submit"]:hover {
@@ -125,20 +112,16 @@
   }
 
  .v-textfield [type= text]{
-    width: 43vw;
-    padding: 12px 20px;
-    margin: 8px 5px;
-    box-sizing: border-box;
-    position: left, bottom;
-    top: 100%; 
-    left: 0%;
+    width: 47vw;
+    position: relative;
+    display: inline-block;
   }
   .data-set-grid {
     margin-top: 10rem;
-    width: 70vh;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    margin-inline: 10rem;
+    margin-inline: 7vw;
+    margin-left: 12vw;
   }
 
   .data-set-top {
