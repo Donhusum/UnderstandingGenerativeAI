@@ -1,12 +1,12 @@
 let i = 0;
 
 const gameQuestions = [
-    "You are looking for the hottest new shoes on the market based on your region. You are based in the EU. What shoes should you choose?",
-    "You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What is the movie?",
-    "You want to make some traditional danish cookies. What cookies are you making?"
+    "Find the correct answer and dataset to solve this question. You are looking for traditional shoes based on your continent. You are based in the America. What shoes should you choose?",
+    "Find the correct answer and dataset to solve this question. You are writing a report about the movie business. You are looking for the highest grossing film of 2023. What came in first place?",
+    "Find the correct answer and dataset to solve this question. You want to make some delicious cookies. You want to make some traditional danish cookies. What cookies are you making?"
 ]
 const answers = [
-    "adidas",
+    "cowboy boots",
     "barbie",
     "vaniljekranse"
 ]
