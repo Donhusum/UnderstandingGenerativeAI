@@ -1,0 +1,81 @@
+.b {
+    margin-top: 7rem;
+    text-align: center;
+    font-size: 3rem;
+}
+.b2 {
+    text-align: center;
+    font-size: 1.5rem;
+ }
+
+
+.page-container {
+    width: 80vw;
+    height: auto;
+    max-height: auto;
+    background-color: #3d3d3d;
+}
+
+.container {
+    display: flex; 
+}
+
+.text-box {
+    width: 38vw;
+    height: auto;
+    margin-top: 5rem;
+    background-color: #1a1a1a;
+    text-align: center;
+    float: left;
+    box-shadow: 5px 5px rgb(44, 44, 44);
+}
+
+p {
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+a {
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2196F3;
+}
+
+a:hover {
+    color: blue;
+}
+
+.text-box-final {
+    width: 38vw;
+    height: auto;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    background-color: #1a1a1a;
+    text-align: center;
+    box-shadow: 5px 5px rgb(44, 44, 44);
+    margin-inline: auto;
+}
+
+.llm {
+    margin-top: 10rem;
+    max-width: 44rem;
+    box-shadow: 5px 5px rgb(44, 44, 44);
+}
+
+.token {
+    margin-top: 5rem;
+    margin-left: 3rem;
+    width: 40rem;
+    max-width: 40rem;
+    box-shadow: 5px 5px rgb(44, 44, 44);
+    
+}
+.bottom {
+    margin-bottom: 10rem;
+}
+
+.left-side, .right-side {
+    width: 40vw;
+    padding: 1rem; 
+    box-sizing: border-box; 
+  }

@@ -1,0 +1,36 @@
+extends layout 
+
+block header
+  link(rel='stylesheet', href='/stylesheets/info.css')
+
+block content
+  .page-container
+    p(class="b") Welcome to the Info Page
+    p(class="b2") By reading the contents of this page, you will get a deeper theoretical understanding of how Generative AI work
+    p(class="b2") Link to our GitHub repository:
+      a(href="https://github.com/Donhusum/UnderstandingGenerativeAI", style="text-decoration:underline") github.com/Donhusum/UnderstandingGenerativeAI
+    hr
+    .container
+      .left-side
+        .text-box
+          p Generative Artificial Intelligence systems are more simple than one might initially imagine. An "AI" is no more than a function with "weights" to decide in what way to respond to an input.
+          p ChatGPT, for example, is known as a Large Language Model (LLM) that is trained to understand human language, as well as having a large amount of data to pull from when generating an answer to a prompt.
+        .text-box(style="margin-top: 8.5rem")
+          p There exists various LLM "models" that generate responses differently from each other. One of the key difference between these models, are the "parameters" used to handle training data. These parameters could do something like changing some way the data is read, or how many times it is read.
+          p If you would like to see the effects different models can have, check out this site in which a variety of models can be compared to see the difference in their effeciency and generated output: https://chat.lmsys.org    
+        img(src='images/Tokenization.jpg', class="token")
+        .text-box
+          p Shown above is a diagram visualizing a simplified version of the tokenization and predicting of a prompt, which in this case is "I love going to the". Each word is converted into a token for the machine to read, and based on that series of tokens, a probability for each potential proceding word is created, and subsequently chosen.
+        .text-box 
+          p Like humans, machines can make mistakes. For LLMs, these come in the form of wrong assumptions derived from wrong or incomplete data. If the model is fed faulty information, it will affect the probabilities calculated when choosing the next word, and subsequently lead the AI down a path of misinformation. These are known as "AI hallucinations", and are incredibly difficult to notice, as the AI is seemingly "confident" in the way it presents all the information. 
+      .right-side
+        img(src='/images/llm.png', class="llm")
+        .text-box(style="margin-top: 5rem")
+          p Above is an illustrated diagram, roughly outlining the process of generating a response from an LLM. Given an input, which in this case is a "string" of words, the model bases it's ouput on that input in some way.
+        .text-box(style="margin-top: 22rem")
+          p For LLMs to understand and be able to generate human languages, they undergo a process known as "deep learning", in which they are fed a massive amount of text, from which they will derive the individual words and their inferred meaning.
+          p From here, all words a given a numerical value using a technique called "tokenization", since numbers are, in a sence, the language of machines. Then, during the process of generating a sentence given a context, each individual word in the sentence is chosen based on the likelyhood of it appearing, according to the data the model has been fed.
+        .text-box(style="margin-top: 10rem")
+          p The percentages are based on the data upon which it was trained, and the context given by the prompt. In the above scenario, one might imagine that the datasets could be related to popular leisure locations, and that gyms are frequently mentioned and endorsed. Hence, why it has a high probability of being picked as the number one option.
+    .text-box-final
+      p This is why generative text-based AI should be trusted with caution. Unlike a majority of information on the internet, AI-generated text is not written or supervised by a human although that does not automatically make it trustworthy information. It is then up to you to judge whether or not to believe the AI, given both the context, and the information present on this page.
